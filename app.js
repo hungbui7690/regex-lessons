@@ -1,22 +1,44 @@
 /*
-  Regex Replace P3
-  - When a regular expression contains the capturing groups, you can reference these groups in the newSubstr using the $N syntax where N is the grouping number. For example, $1 and $2 reference first and second capturing groups.  
+  Regex Replace P4
+  - The second argument of the replace() method can be a function like this:
+    > replace(regexp, replacerFunction)
 
+  - The replace() method calls the replacerFunction after it finds the first match. The replacerFunction is used to create a substring to replace the match.
+
+  - If the regexp uses the global flag (g), the replace() method will call the replacerFunction after every match.
+
+  - The replacerFunction has the following arguments:
+
+    + match specifies the matched substring.
+    + p1, p2, … the values of the capturing groups in the regexp.
+    + offset is an integer that specifies the offset of the matched substring within the input string.
+    + string is the input string.
+    + groups is an object whose are are the named capturing group and values are matched values.
+
+  - Let’s take an example of using the replace() method with a replacer function.
+
+  - Suppose you have a string like this:
+    > backgroundColor
+
+  - And you want to transform it into something like:
+    > background-color
+
+  - To do that you can use the replace() method with a replacer function.
+
+    
 */
 
-// The following example illustrates how to use the replace() method with capturing groups to swap the first and last names in a person name:
-let re = /(\w+)\s(\w+)/
-let name = 'Jane Doe'
-let lastFirst = name.replace(re, '$2, $1')
+const regex = /[A-Z]/g
 
-console.log(lastFirst) // Doe, Jane
+function replacer(match, offset) {
+  return (offset > 0 ? '-' : '') + match.toLowerCase()
+}
 
-/*
-How it works.
+// The replacer() function adds a hyphen if the matched letter is not at the beginning of the string and concatenates the hyphen with the matched letter converted to lowercase.
+// Third, use the replace() method to replace the match with the substring returned from the replacer() function:
+function addHyphen(prop) {
+  return prop.replace(regex, replacer)
+}
 
-The regular expression /(\w+)\s(\w+)/ matches one or more word characters, a space, and then one or more word characters. In other words, it matches any string that has a word, space, and another word.
-
-The regular expression contains two capturing groups. The first capturing group captures the first word and the second one captures the second word after the space.
-
-In the newSubstr, we use $1 to reference the first capturing group and $2 to reference the second one. To swap the first name and last name, we place the second match ($2) first and then the first match ($1).
-*/
+const prop = 'backgroundColor'
+console.log(addHyphen(prop)) // background-color
