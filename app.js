@@ -1,44 +1,24 @@
 /*
-  Ranges
-  - The square brackets can contain character ranges. For example, [a-z] is a character range from a to z. And [0-9] is a digit from 0 to 9.
+  Capturing groups P1
+  - Suppose you have the following path:
+    > resource/id
 
-  - The [a-zA-Z0-9_] is the same as \w. The [0-9] is the same as \d.
+  - For example:
+    > posts/10
 
-///////////////////////////////
+  - In the path, the resource is posts and id is 10. To match the path, you use the following regular expression:
+    > /\w+\/\d+/
 
-  Excluding ranges
-  - To negate a range, you use the excluding range like: [^...].
-  - For example, [^0-9] matches any character except a digit. It is the same as \D.
-  - Or, the [^aeiou] matches any character except 'a', 'e', 'i', 'o' and 'u'.
-
-///////////////////////////////
-
-  Escape special characters
-  - Typically, you use a backslash to escape a special character e.g., \.. However, in square brackets, you don’t need to escape most of the special characters except they have a meaning for the square brackets.
-
-  - For example, if the caret (^) is at the beginning of a string, you need to escape it:
-  > [\^#$]
-
-  - If the caret is not at the beginning of a string (^), you do not need to escape:
-  > [#^$]    
-
-///////////////////////////////
-
-  The flag u
-  - If a set has surrogate pair, you need to add the flag u to the regular expression to make it work correctly
-
-///////////////////////////////
-
-  - Use [...] to construct a set to match any character in it.
-  - Use the - inside a set to construct a range to match any character in the range.
-  - Use the ^ to negate a range.
+  - In this pattern:
+    >   \w+ is a word character set with a quantifier (+) that matches one or more word characters.
+    >   / matches the forward slash (/). The backslash (\) escapes the forward slash,
+    >   \d+ is the combination of the digit character set and a quantfifer (+), which matches one or more digits.
 
 */
 
-let result1 = 'It is 🍎'.match(/[🍎🍅🍓]/)
+// The following uses the regular expression /\w+\/\d+/ pattern to match the string ‘posts/10':
+const path = 'posts/10'
+const pattern = /\w+\/\d+/
 
-console.log(result1) // ['\uD83C', index: 6, input: 'It is 🍎', groups: undefined]
-
-let result2 = 'It is 🍎'.match(/[🍎🍅🍓]/u)
-
-console.log(result2) // ['🍎', index: 6, input: 'It is 🍎', groups: undefined]
+const match = path.match(pattern)
+console.log(match) // ['posts/10', index: 0, input: 'posts/10', groups: undefined]
