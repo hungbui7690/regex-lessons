@@ -1,9 +1,9 @@
 /*
-  Test Regex
+  The Ignore Flag (i) P1
 
 */
 
-let regex = /hi/
+let regex = /hi/i // (***)
 
-const result = regex.test('hi, John')
-console.log(result) // true
+const result = regex.test('HI, John')
+console.log(result)
