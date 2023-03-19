@@ -1,11 +1,27 @@
 /*
-  Multiple capturing groups P2
+  Named capturing groups P1
+  - To access a subgroup in a match, you use an index. However, you may want to access a subgroup by a meaningful name to make it more convenient.
+
+  - To do that, you use the named capturing group to assign a name to a group. The following shows the syntax for assigning a name to a capturing group:
+    > (?<name>rule)
+    
+    > In this syntax:
+      + () indicates a capturing group.
+      + ?<name> specifies the name of the capturing group.
+      + rule is a rule in the pattern.
+
+
+  - For example, the following creates the names:
+    > /?<resource>\w+)\/(?<id>\d+/
+
+    > In this syntax:
+      + The resource is the name for the first capturing group
+      + The id is the name for the second capturing group.
 
 */
 
-// To access the first and second subgroups, you use match[1] and match[2]. Note that the match[0] returns the entire match.
 const path = 'posts/10'
-const pattern = /(\w+)\/(\d+)/
+const pattern = /(?<resource>\w+)\/(?<id>\d+)/
 
 const match = path.match(pattern)
-console.log(match[0], match[1], match[2]) // posts/10 posts 10
+console.log(match) // (3) ['posts/10', 'posts', '10', index: 0, input: 'posts/10', groups: {…}]
