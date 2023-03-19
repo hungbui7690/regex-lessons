@@ -1,11 +1,8 @@
 /*
-  Word Boundaries P2
+  Word Boundaries P3
+  - It’s possible to use the word boundary with digits.
 
 */
 
-// The following example returns 'JS' because 'Hello, JS!' matches the regular expression /\bJS\b/:
-console.log('Hello, JSscript!'.match(/\bJS\b/)) // null
-
-// Note that without \b, the /JS/ matches both 'Hello, JS' and 'Hello, JScript':
-console.log('Hello, JSscript!'.match(/JS/)) // ["JS"]
-console.log('Hello, JS!'.match(/JS/)) // ["JS"]
+// For example, the regular expression \b\d\d\d\d\b matches a 4-digit number surrounded by characters different from \w:
+console.log('ES 2015'.match(/\b\d\d\d\d\b/)) // ["2015"]
