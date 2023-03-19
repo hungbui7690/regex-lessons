@@ -17,7 +17,7 @@
 
 */
 
-let str = 'O2 is oxygen'
-let re = /\w\d/g // match a word followed by a digit
+let str = 'ES6 Tutorial'
+let re = /ES\d/g // ES followed by a digit like ES6
 
-console.log(str.match(re))
+console.log(str.match(re)) // ['ES6']
