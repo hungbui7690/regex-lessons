@@ -1,12 +1,8 @@
 /*
-  The range {n,m} P2
-  - Because the upper limit is optional, the {n,} searches for a sequence of n or more times. For example, the regular expression /\d{2,}/ will match any number that has two or more digits.
-
-
+  The range {n,m} P3
+  
 */
 
-let str = 'The official name of ES6 is ES2015'
-let re = /\d{2,}/g
-
-let result = str.match(re)
-console.log(result) // ["2015"]
+// The following example uses the regular expression /\d{1,}/g to match any numbers that have one or more digits in a phone number:
+let numbers = '+1-(408)-555-0105'.match(/\d{1,}/g)
+console.log(numbers) // ["1", "408", "555", "0105"]
