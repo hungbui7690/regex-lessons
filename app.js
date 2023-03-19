@@ -1,12 +1,12 @@
 /*
-  The range {n,m} P1
-  - The range matches a character or character class from n to m times.
+  The range {n,m} P2
+  - Because the upper limit is optional, the {n,} searches for a sequence of n or more times. For example, the regular expression /\d{2,}/ will match any number that has two or more digits.
+
 
 */
 
-// For example, to find numbers that have two, three, or four digits, you use the regular expression /\d{2,4}/g:
-let str = 'The official name of ES11 is ES2020'
-let re = /\d{2,4}/g
+let str = 'The official name of ES6 is ES2015'
+let re = /\d{2,}/g
 
 let result = str.match(re)
-console.log(result) // ["11", "2020"]
+console.log(result) // ["2015"]
