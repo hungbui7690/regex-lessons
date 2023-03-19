@@ -1,20 +1,30 @@
 /*
-  Shorthands P3
-  - The quantifier * means zero or more. It is the same as {0,}. 
-  
-  
-  - We often use the quantifiers to form complex regular expressions. The following shows some regular expression examples that include quantifiers:
-    + Whole numbers:/^\d+$/
-    + Decimal numbers:/^\d*.\d+$/
-    + Whole numbers and decimal numbers:/^\d*(.\d+)?$/
-    + Negative, positive whole numbers & decimal numbers:/^-?\d*(.\d+)?$/
+  Non-Greedy Quantifiers 
+  - Non-Greedy === Lazy 
+  - In regular expressions, quantifiers allow you to match their preceding elements with specified numbers of times.
+
+  - By default, quantifiers use the greedy mode for matching. In the greedy mode, quantifiers try to match as many as possible and return the largest matches. When quantifiers use the greedy mode, they are called greedy quantifiers. In the quantifier tutorial, you learned how to work with greedy quantifiers such as *, +, and ?.
+
+  - Besides the greedy mode, quantifiers also work in the non-greedy mode or lazy mode. In the lazy mode, the quantifiers match their preceding elements as few as possible and return the smallest matches. When quantifiers use the lazy mode, they’re often referred to as non-greedy quantifiers or lazy quantifiers.
+
+  - To transform a greedy quantifier into a non-greedy quantifier, you add an extra question mark to it. The following table lists the greedy quantifiers and their corresponding lazy quantifiers:
+
+  - Greedy quantifier	Lazy quantifier	Meaning
+      *	*?	                Match its preceding element zero or more times.
+      +	+?	                Match its preceding element one or more times.
+      ?	??	                Match its preceding element zero or one time.
+      { n }	{ n }?	        Match its preceding element exactly n times.
+      { n ,}	{ n ,}?	      Match its preceding element at least n times.
+      { n , m }	{ n , m }?	Match its preceding element from n to m times.
+
+  - Lazy quantifiers match their preceding elements as few as possible to return the smallest possible matches.
+  - Use a question mark (?) to transform a greedy quantifier into a lazy quantifier.
   
 */
 
-// The following example shows how to use the quantifier * to match the string Java followed by any word character:
-let str = 'JavaScript is not Java'
-let re = /Java\w*/g
+// The following program uses the non-greedy quantifier (+?) to match the text within the quotes ("") of a button element:
+const s = '<button type="submit" class="btn">Send</button>'
+const pattern = /".+?"/g
 
-let results = str.match(re)
-
-console.log(results) // ["JavaScript", "Java"]
+const result = s.match(pattern)
+console.log(result) // ['"submit"', '"btn"']
