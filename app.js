@@ -7,7 +7,7 @@
 
 ///////////////////////////////
 
-  Digit Character P1
+  Digit Character P2
   - \d
 
 */
@@ -15,4 +15,6 @@
 let phone = '+1-(408)-555-0105'
 let re = /\d/g
 
-console.log(phone.match(re)) // ['1', '4', '0', '8', '5', '5', '5', '0', '1', '0', '5']
+let numbers = phone.match(re).join('')
+
+console.log(numbers) // 14085550105
