@@ -1,14 +1,12 @@
 /*
-  Quantity
-  - Exact count {n}
-    > A number in curly braces {n}is the simplest quantifier. When you append it to a character or character class, it specifies how many characters or character classes you want to match.
+  The range {n,m} P1
+  - The range matches a character or character class from n to m times.
 
 */
 
-// For example, the regular expression /\d{4}/ matches a four-digit number. It is the same as /\d\d\d\d/:
-let str = 'ECMAScript 2020'
-let re = /\d{4}/
+// For example, to find numbers that have two, three, or four digits, you use the regular expression /\d{2,4}/g:
+let str = 'The official name of ES11 is ES2020'
+let re = /\d{2,4}/g
 
 let result = str.match(re)
-
-console.log(result) // ["2020"]
+console.log(result) // ["11", "2020"]
