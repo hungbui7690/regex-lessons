@@ -1,9 +1,9 @@
 /*
-  The Ignore Flag (i) P1
+  The Ignore Flag (i) P2
 
 */
 
-let regex = /hi/i // (***)
+let regex = new RegExp('hi', 'i') // (***) alternative
 
 const result = regex.test('HI, John')
 console.log(result)
