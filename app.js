@@ -1,16 +1,13 @@
 /*
-  Regex match() P2
-  - Using the JavaScript regex match() method with the expression that has the global flag
+  Regex match() P3
+  - Using the JavaScript Regex match() method with the named capturing group
 
 */
 
-// The following example illustrates how to use the match() method with a regular expression that doesn’t have a global flag. It returns an array of the first match with additional properties.
-let str = 'Price: $5–$10'
-let result = str.match(/\$\d+/)
-console.log(result) // '$5', index: 7, input: 'Price: $5–$10', groups: undefined]
+// The following shows how to use the match() method with a named capturing group. It captures the "yellow" into a group named "color":
+let str = 'I like yellow color palette!'
 
-// The additional properties are:
+let re = /(?<color>yellow) color/
+let result = str.match(re)
 
-// + index: is the index at which the match was found.
-// + input: a copy of the search string.
-// + groups: is the object of named capturing groups whose keys and values are the names and the capturing groups respectively. In this example, it is undefined because we did to define any named capturing groups.
+console.log(result) // (2) ['yellow color', 'yellow', index: 7, input: 'I like yellow color palette!', groups: {…}]
