@@ -7,14 +7,17 @@
 
 ///////////////////////////////
 
-  Digit Character P2
-  - \d
+  Whitespace 
+  - \s
+
+  Word Character 
+  - \w 
+    > [A-Za-z0-9_]
+
 
 */
 
-let phone = '+1-(408)-555-0105'
-let re = /\d/g
+let str = 'O2 is oxygen'
+let re = /\w\d/g // match a word followed by a digit
 
-let numbers = phone.match(re).join('')
-
-console.log(numbers) // 14085550105
+console.log(str.match(re))
