@@ -1,8 +1,9 @@
 /*
-  Create Regex
+  Test Regex
 
 */
 
-// (***) 2 ways to create regex
 let regex = /hi/
-regex = new RegExp('hi')
+
+const result = regex.test('hi, John')
+console.log(result) // true
