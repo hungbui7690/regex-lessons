@@ -1,9 +1,9 @@
 /*
-  Replacing Strings P2
+  Replacing Strings P3
 
 */
 
-let str = "Are you OK? Yes, I'm OK."
-let result = str.replace(/OK/g, 'fine') // (***) without ignore flag
+let str = "Are you Ok? Yes, I'm OK."
+let result = str.replace(/OK/gi, 'fine') // (***) gi
 
 console.log(result)
