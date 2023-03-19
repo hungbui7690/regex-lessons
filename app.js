@@ -1,10 +1,10 @@
 /*
-  Dollar Anchor
-  + ^ – The caret anchor matches the beginning of the text.
-  + $ – The dollar anchor matches the end of the text.
+  Combine Both Anchors P1
+  - You will often need to use anchors ^ and $ to check if a string fully matches a pattern.
 
 
 */
 
-let str = 'JavaScript'
-console.log(/t$/.test(str)) // true > since ends with letter t
+// The following example checks if an input string matches a time format hh:mm like 12:05:
+let isValid = /^\d\d:\d\d$/.test('12:05')
+console.log(isValid) // true
