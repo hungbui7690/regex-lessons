@@ -1,18 +1,10 @@
 /*
-  The Global Flag (g)
-  - without global flag > return the first match
+  Searching Strings
+  - using .match()
 
 */
 
-let message = 'Hi, are you there? hi, HI...'
-let regex = /hi/gi
+let str = "Are you Ok? Yes, I'm OK"
+let result = str.match(/OK/gi) // return array of items
 
-let matches = []
-let match
-
-do {
-  match = regex.exec(message) // true/false
-  if (match) matches.push(match)
-} while (match !== null)
-
-console.log(matches) // returns array of arrays
+console.log(result)
