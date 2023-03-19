@@ -1,11 +1,20 @@
 /*
-  Shorthands P2
-  - The quantifier ? means zero or one. It is the same as {0,1}. For example, /colou?r/ will match both color and colour:
-
-
+  Shorthands P3
+  - The quantifier * means zero or more. It is the same as {0,}. 
+  
+  
+  - We often use the quantifiers to form complex regular expressions. The following shows some regular expression examples that include quantifiers:
+    + Whole numbers:/^\d+$/
+    + Decimal numbers:/^\d*.\d+$/
+    + Whole numbers and decimal numbers:/^\d*(.\d+)?$/
+    + Negative, positive whole numbers & decimal numbers:/^-?\d*(.\d+)?$/
+  
 */
 
-let str = 'Is this color or colour?'
-let result = str.match(/colou?r/g) // zero or 1 letter "u"
+// The following example shows how to use the quantifier * to match the string Java followed by any word character:
+let str = 'JavaScript is not Java'
+let re = /Java\w*/g
 
-console.log(result) // ["color", "colour"]
+let results = str.match(re)
+
+console.log(results) // ["JavaScript", "Java"]
