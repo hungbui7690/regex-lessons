@@ -1,15 +1,11 @@
 /*
-  Multiple capturing groups P1
-  - To capture both the resource (posts) and id (10) of the path (post/10), you use multiple capturing groups in the regular expression as follows:
-    > /(\w+)\/(\d+)/
-  
-  (***) The regex has two capturing groups one for \w+ and the other for \d+ .
+  Multiple capturing groups P2
 
 */
 
-// The following script shows the entire match and all the subgroups:
+// To access the first and second subgroups, you use match[1] and match[2]. Note that the match[0] returns the entire match.
 const path = 'posts/10'
 const pattern = /(\w+)\/(\d+)/
 
 const match = path.match(pattern)
-console.log(match) // (3) ['posts/10', 'posts', '10', index: 0, input: 'posts/10', groups: undefined]
+console.log(match[0], match[1], match[2]) // posts/10 posts 10
