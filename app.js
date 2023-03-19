@@ -1,10 +1,10 @@
 /*
-  Searching Strings
-  - using .match()
+  Replacing Strings P1
+  
 
 */
 
-let str = "Are you Ok? Yes, I'm OK"
-let result = str.match(/OK/gi) // return array of items
+let str = "Are you OK? Yes, I'm OK."
+let result = str.replace('Ok', 'fine') // (***)
 
 console.log(result)
